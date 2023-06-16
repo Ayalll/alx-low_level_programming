@@ -1,18 +1,26 @@
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
 
 /**
- * main - Prints the lowercase alphabet in reverse.
+ * main - Prints a random number and states whether
+ *        it is positive, negative, or zero.
  *
  * Return: Always 0.
- */
+*/
 int main(void)
 {
-	char letter;
+	int n;
 
-	for (letter = 'z'; letter >= 'a'; letter--)
-		putchar(letter);
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
 
-	putchar('\n');
+	if (n > 0)
+		printf("%d is positive\n", n);
+	else if (n < 0)
+		printf("%d is negative\n", n);
+	else
+		printf("%d is zero\n", n);
 
 	return (0);
 }
